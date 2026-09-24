@@ -1,0 +1,645 @@
+.top-banner {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+    border-radius: 0;
+    background-color: #FF330E;
+    width: 100%;
+    height: 46px;
+    justify-content: start;
+    font-family: Montserrat;
+    color: #131316;
+    font-weight: 800; 
+}
+.banner-text:hover {
+    color: #f8f9fd;
+    transition: 1s;
+    
+}
+.nav-menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 300px;
+    margin: 0;
+    padding: 30px 0px 0px 0px;
+}
+.nav-direcrion {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+.text-nav {
+    display: flex;
+    text-decoration: none;
+    color: #B3B3B3;
+}
+.text-nav:hover {
+    color: white;
+    transition: 0.5s;
+}
+.actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+.input-search {
+    background-color: #1A1A1E;
+    border-radius: 5px;
+    width: 310px;
+    height: 40px;
+    color: #5F5F61;
+    font-weight: 400;
+    border: 1px #2A2A2A;
+    
+}
+.bi-cart {
+       width: 40px;
+            height: 40px;
+            background-color: #1a1a1a;
+            border: 1px solid #2d2d2d;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #121212;
+    color: #ffffff ;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    padding: 0px;
+    max-width: 2000px;
+    margin: 0;
+}
+
+header h1 {
+    font-size: 32px;
+    font-weight: 500;
+    margin-bottom: 12px;
+}
+
+header > p {
+    color: #888888;
+    font-size: 15px;
+    margin-bottom: 32px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 12px;
+    margin-bottom: 40px;
+}
+
+nav button {
+    background-color: #1e1e1e;
+    color: #888888;
+    border: 1px solid transparent;
+    border-radius: 30px;
+    padding: 10px 24px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+nav button:hover {
+    border-color: #ffffff;
+    color: #ffffff;
+}
+
+nav button.active-all,
+nav li:first-child button { 
+    background-color: #ffffff;
+    color: #000000;
+    border-color: #ffffff;
+}
+
+nav button.active-category {
+    border-color: #ffffff;
+    color: #ffffff;
+    background-color: transparent;
+}
+
+main > section:first-of-type {
+    margin-bottom: 24px;
+}
+
+form {
+    background-color: #1e1e1e;
+    border-radius: 16px;
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+form label[for="sort-select"] {
+    color: #888888;
+    font-size: 14px;
+}
+
+form select {
+    background-color: #121212;
+    color: #ffffff;
+    border: 1px solid #2a2a2a;
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+    cursor: pointer;
+    appearance: none;
+    min-width: 200px;
+}
+
+form label:has(input[type="checkbox"]) {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #aaaaaa;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+form input[type="checkbox"] {
+    appearance: none;
+    width: 40px;
+    height: 24px;
+    background-color: #333333;
+    border-radius: 12px;
+    position: relative;
+    cursor: pointer;
+    outline: none;
+}
+
+form input[type="checkbox"]::before {
+    content: '';
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background-color: #888888;
+    top: 3px;
+    left: 3px;
+    transition: 0.3s ease;
+}
+
+form input[type="checkbox"]:checked {
+    background-color: #ffffff;
+}
+
+form input[type="checkbox"]:checked::before {
+    background-color: #000000;
+    left: 19px;
+}
+
+form button[type="reset"] {
+    margin-left: auto;
+    background: none;
+    border: none;
+    color: #888888;
+    font-size: 14px;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+main > section:first-of-type > p {
+    color: #888888;
+    font-size: 14px;
+    margin-top: 24px;
+}
+
+main section ul {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 24px ;
+    list-style: none; 
+    padding: 0 ;
+    margin: 0 ;
+    width: 100%;
+}
+
+article {
+    background-color: #1e1e1e;
+    border-radius: 16px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    position: relative;
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), 
+                box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); 
+}
+
+article:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.5); 
+}
+
+article img {
+    display: block;
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    color: transparent; 
+}
+
+li:nth-child(4n+1) article img { background-color: #FF4D22; }
+li:nth-child(4n+2) article img { background-color: #5E7CFF; }
+li:nth-child(4n+3) article img { background-color: #A8EB12; }
+li:nth-child(4n) article img { background-color: #966BFF; }
+
+article > p:first-of-type {
+    color: #888888;
+    font-size: 12px;
+    margin: 16px 16px 8px 16px;
+}
+
+article h3 {
+    font-size: 16px;
+    font-weight: 500;
+    margin: 0 16px 12px 16px;
+    color: #ffffff;
+    line-height: 1.4;
+}
+
+article > p:last-of-type {
+    font-size: 16px;
+    font-weight: 700;
+    margin: 0 16px 20px 16px;
+    color: #ffffff;
+}
+
+article span {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 600;
+    z-index: 10;
+    background-color: #ffffff;
+    color: #000000;
+}
+
+article span:contains("Немає в наявності") {
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #ffffff;
+}
+
+article button {
+    background-color: #121212;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    padding: 12px;
+    font-size: 14px;
+    font-weight: 500;
+    margin: auto 16px 16px 16px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+article button:hover:not(:disabled) {
+    background-color: #2a2a2a;
+    transform: translateY(-6px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+}
+
+article button:disabled {
+    background-color: transparent;
+    border: 1px solid #2a2a2a;
+    color: #555555;
+    cursor: not-allowed;
+}
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 12px;
+    margin-bottom: 40px;
+    padding: 0;
+}
+
+nav button {
+    background-color: #1e1e1e;
+    color: #888888;       
+    border: 1px solid transparent;
+    border-radius: 30px;
+    padding: 10px 24px;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+nav button:hover {
+    color: #ffffff;
+}
+
+nav button.active-all {
+    background-color: #ffffff;
+    color: #000000;
+    border-color: #ffffff;
+}
+
+nav button.active-category {
+    background-color: #2a2a2a;
+    color: #ffffff;           
+    border-color: #ffffff;    
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: #131316;
+  color: #FFFFFF;
+}
+
+/* ===== СЕКЦІЯ КОНТАКТИ ===== */
+.contacts {
+  background-color: #222227;
+  color: #FFFFFF;
+  padding: 80px 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+  overflow: hidden;
+  position: relative;
+}
+
+.contacts__content {
+  flex: 1;
+  max-width: 520px;
+}
+
+.contacts__title {
+  margin: 0 0 20px;
+  font-size: 42px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  color: #FFFFFF;
+}
+
+.contacts__text {
+  margin: 0 0 40px;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #A0A0A5;
+  max-width: 420px;
+}
+
+/* Список контактів */
+.contacts__list {
+  list-style: none;
+  margin: 0 0 40px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.contacts__item {
+  display: flex;
+  align-items: baseline;
+  gap: 24px;
+}
+
+.contacts__label {
+  flex-shrink: 0;
+  width: 90px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #A0A0A5;
+}
+
+.contacts__value {
+  font-size: 16px;
+  font-weight: 500;
+  color: #FFFFFF;
+  line-height: 1.4;
+}
+
+/* Соцмережі */
+.contacts__socials {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 16px;
+}
+
+.contacts__social {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: #2A2A2E;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.contacts__social:hover {
+  background-color: #E63946;
+  transform: translateY(-2px);
+}
+
+.contacts__social img {
+  width: 20px;
+  height: 40px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+}
+
+
+.contacts__visual {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 380px;
+  height: 380px;
+  position: relative;
+}
+
+.contacts__icon {
+  width: 220px;
+  height: auto;
+  display: block;
+}
+
+/* ===== ФУТЕР ===== */
+.footer {
+  background-color: #1A1A1E;
+  color: #FFFFFF;
+  padding: 64px 80px 32px;
+}
+
+.footer__top {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+
+.footer__brand {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex: 1.4;
+}
+
+.footer__logo {
+  display: inline-block;
+  text-decoration: none;
+}
+
+.footer__logo-text {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+.footer__logo-text span {
+  color: #E63946;
+}
+
+.footer__tagline {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #A0A0A5;
+  max-width: 220px;
+}
+
+
+.footer__nav {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex: 1;
+}
+
+.footer__heading {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: #FFFFFF;
+}
+
+.footer__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer__list a {
+  color: #A0A0A5;
+  text-decoration: none;
+  font-size: 14px;
+  line-height: 1.4;
+  transition: color 0.2s ease;
+}
+
+.footer__list a:hover {
+  color: #FFFFFF;
+}
+
+/* Контакти у футері */
+.footer__contacts {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+}
+
+.footer__contacts .footer__heading {
+  margin-bottom: 4px;
+}
+
+.footer__contacts a {
+  display: block;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #A0A0A5;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer__contacts a:hover {
+  color: #FFFFFF;
+}
+
+
+.footer__copy {
+  margin: 0;
+  padding-top: 24px;
+  border-top: 1px solid #2A2A2E;
+  font-size: 13px;
+  color: #6B6B70;
+  text-align: center;
+}
+
+
+@media (max-width: 1100px) {
+  .contacts {
+    padding: 64px 40px;
+    gap: 40px;
+  }
+
+  .contacts__visual {
+    width: 280px;
+    height: 280px;
+  }
+
+  .contacts__icon {
+    width: 180px;
+  }
+
+  .footer {
+    padding: 48px 40px 28px;
+  }
+
+  .footer__top {
+    flex-wrap: wrap;
+    gap: 36px 32px;
+  }
+
+  .footer__brand {
+    flex: 1 1 100%;
+  }
+
+  .footer__nav,
+  .footer__contacts {
+    flex: 1 1 40%;
+  }
+}
