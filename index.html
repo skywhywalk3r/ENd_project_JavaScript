@@ -67,21 +67,28 @@
     </div>
     </div>
     
-    <div>
-        <p>street style shop</p>
-        <h1>вбрання для вулиць твого міста</h1>
-        <p>Кросівки, худі, кепки й аксесуари, які носить твоя стрічка. Обирай образ і додавай у кошик за пару кліків.</p>
-        <div>
-            <button>Дивитись каталог</button>
-            <button>Про магазин</button>
-        </div>
-        <div>
-            <img src="images/orgsneakers.webp" alt="">
-            <img src="images/greencap.webp" alt="">
-            <p>від 399 грн</p>
-            <img src="images/dots.webp" alt="">
-        </div>
+   <div class="hero">
+  <div class="hero-content">
+    <p class="subtitle">street style shop</p>
+    <h1 class="hero-text">
+  ВБРАННЯ<br>
+  ДЛЯ ВУЛИЦЬ<br>
+  ТВОГО МІСТА
+</h1>
+    <p class="description">Кросівки, худі, кепки й аксесуари, які носить твоя стрічка. Обирай образ і додавай у кошик за пару кліків.</p>
+    
+    <div class="hero-buttons">
+      <button class="btn btn-primary">Дивитись каталог</button>
+      <button class="btn btn-secondary">Про магазин</button>
     </div>
+  </div>
+  <div class="hero-media">
+    <img src="images/dots.webp" alt="" class="img-dots">
+    <img src="images/orgsneakers.webp" alt="Кроссовки" class="img-sneakers" >
+    <img src="images/greencap.webp" alt="Кепка" class="img-cap" width="210px" height="203px">
+    <div class="badge">від 399 грн</div>
+  </div>
+</div>
 </header>
 <body>
         <header>
@@ -274,6 +281,33 @@
                 </li>
             </ul>
          </section>
+             <section class="about">
+  <div class="about__media">
+    <div class="about__image-wrapper">
+      <img class="about__image" src="images/coat.webp" alt="курточка">
+    </div>
+    <span class="about__badge">обирай свій стиль</span>
+  </div>
+  <div class="about__content">
+    <h2 class="about__title">Про магазин</h2>
+    <p class="about__text">KROK STREET — це простір для тих, хто формує власний стиль на стику спорту, музики та вуличного мистецтва. Ми відбираємо кросівки, худі та аксесуари, які легко комбінувати між собою і які витримують ритм справжнього міста.</p>
+    <p class="about__text">Асортимент оновлюється щотижня, а розмірна сітка підходить під різні типи фігури — від XS до XL і від 40-го до 44-го.</p>
+    <div class="about__stats">
+      <div class="about__stat-item">
+        <span class="about__stat-value">4</span>
+        <span class="about__stat-label">категорії товарів</span>
+      </div>
+      <div class="about__stat-item">
+        <span class="about__stat-value">20+</span>
+        <span class="about__stat-label">позицій каталозі</span>
+      </div>
+      <div class="about__stat-item">
+        <span class="about__stat-value">14</span>
+        <span class="about__stat-label">позицій каталозі</span>
+      </div>
+    </div>
+  </div>
+</section>
          <!-- ========== СЕКЦІЯ КОНТАКТИ ========== -->
 <section class="contacts">
   <div class="contacts__content">
@@ -325,7 +359,55 @@
     <img class="contacts__icon" src="images/redsquare.webp" alt="Шопінг-сумка">
   </div>
 </section>
-
+         <!-- Модальное окно -->
+<div id="product-modal" class="modal-overlay">
+    <div class="modal-window">
+        <button class="modal-close">&times;</button>
+        
+        <div class="modal-content">
+            <!-- Левая часть - Фотография -->
+            <div class="modal-image-container">
+                <span class="modal-badge" id="modal-badge">Знижка</span>
+                <img id="modal-image" src="" alt="Фото товару">
+            </div>
+            
+            <!-- Правая часть - Информация -->
+            <div class="modal-info">
+                <span class="modal-category" id="modal-category">Кросівки</span>
+                <h2 class="modal-title" id="modal-title">Назва товару</h2>
+                <div class="modal-price" id="modal-price">$0</div>
+                
+                <p class="modal-desc">
+                    Легкі бігові кросівки з рельєфною підошвою — тримають зчеплення на будь-якому асфальті.
+                </p>
+                
+                <div class="modal-sizes">
+                    <p>Розмір</p>
+                    <div class="size-buttons">
+                        <button class="size-btn active">40</button>
+                        <button class="size-btn">41</button>
+                        <button class="size-btn">42</button>
+                        <button class="size-btn">43</button>
+                        <button class="size-btn">44</button>
+                    </div>
+                </div>
+                
+                <div class="modal-quantity">
+                    <div class="quantity-controls">
+                        <button class="qty-btn" id="qty-minus">-</button>
+                        <span id="qty-value">1</span>
+                        <button class="qty-btn" id="qty-plus">+</button>
+                    </div>
+                </div>
+                
+                <div class="modal-stock">Є в наявності</div>
+                
+                <button class="modal-add-to-cart">Додати кошик</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="ap.js"></script>
 </body>
 <!-- ========== ФУТЕР ========== -->
 <footer class="footer">
@@ -369,6 +451,7 @@
   </div>
 
   
-  <p class="footer__copy">© 2026 KROK STREET. Навчальний проєкт.</p>
+ <div class="footer__line"></div>
+<p class="footer__copy">© 2026 KROK STREET. Навчальний проєкт.</p>
 </footer>
 </html>
