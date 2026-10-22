@@ -58,24 +58,23 @@
                 <a href="#" class="text-nav">Про нас</a>
                 <a href="#" class="text-nav">Контакти</a>
             </nav>
-            <div class="actions">
-                <div class="search">
-                    <input type="text" class="input-search" placeholder="🔍︎ Пошук товарів...">
-                </div>
-                <div class="cart">
-                    <i class="bi bi-cart"></i>
-                    <span class="cart-count"><i class="bi bi-0-circle-fill"></i></span>
-                    <span class="cart-badge">0</span>
-                </div>
-            </div>
+                    <div class="actions">
+                        
+  <div class="search">
+    <input type="text" class="input-search" id="search-input"  placeholder="     🔍︎     Пошук товарів...">
+  </div>
+
+<div class="cart" id="cartBtn" role="button" tabindex="0" aria-label="Відкрити корзину">
+    <i class="bi bi-cart"></i>
+
+    <span class="cart-count"><i class="bi bi-0-circle-fill"></i></span>
+            <span class="cart-badge">0</span>
+
+</div>
+</div>
         </div>
     </div>
 
-
-
-<!-- Кнопка для открытия модального окна -->
-
-  <!-- Затемнение фона и модальное окно -->
   <div id="modalOverlay" class="modal-overlay">
     <div class="modal-card">
       
@@ -130,6 +129,9 @@
       </form>
     </div>
   </div>
+            </div>
+        </div>
+    </div>
     <div class="hero">
         <div class="hero-content">
             <p class="subtitle">street style shop</p>
@@ -174,8 +176,7 @@
 </header>
 
 <main>
-    <!-- Filter panel-->
-    <section>
+    <section class="filter-panel"  id="catalog">
         <form id="filter-form" action="#" method="get">
             <label for="sort-select">Сортування</label>
             <select id="sort-select" name="sort">
@@ -192,7 +193,6 @@
         <p id="products-count">16 товарів</p>
     </section>
 
-    <!--Catalog-->
     <section>
         <ul id="catalog-list">
                 <li data-brand="URBN" data-desc="Масивні кросівки з об’ємною підошвою — додають образу вуличного характеру.">
@@ -215,7 +215,7 @@
                     </article>
                 </li>
                 <li data-brand="URBN" data-desc="Яскраві лаймові акценти та амортизація, що тримає ритм міста.">
-                    <article>
+                    <article id="sneakers">
                         <span>Немає в наявності</span>
                         <img src="images/greenshoe.webp" alt="Lime pulse">
                         <p>Кросівки</p>
@@ -234,7 +234,7 @@
                     </article>
                 </li>
                 <li data-brand="URBN" data-desc="Щільне худі з великим принтом на грудях і м’яким начосом всередині.">
-                    <article>
+                    <article id="coat">
                         <span>Немає в наявності</span>
                         <img src="images/polored.webp" alt="Худі Blockletter">
                         <p>Худі</p>
@@ -273,7 +273,7 @@
                     </article>
                 </li>
                 <li data-brand="URBN" data-desc="Кепка з низькою посадкою та вигнутим козирком.">
-                    <article>
+                    <article id="cap">
                         <img src="images/redcap.webp" alt="Кепка Low Arc">
                         <p>Кепки</p>
                         <h3>Кепка Low Arc</h3>
@@ -340,7 +340,7 @@
                     </article>
                 </li>
                 <li data-brand="URBN" data-desc="Мінімалістична футболка з монохромним логотипом.">
-                    <article>
+                    <article id="shirt">
                         <img src="images/lightgreenshirt.webp" alt="Футболка Mono Logo">
                         <p>Футболки</p>
                         <h3>Футболка Mono Logo</h3>
@@ -358,7 +358,7 @@
             </div>
             <span class="about__badge">обирай свій стиль</span>
         </div>
-        <div class="about__content">
+        <div class="about__content" id="biographi">
             <h2 class="about__title">Про магазин</h2>
             <p class="about__text">KROK STREET — це простір для тих, хто формує власний стиль на стику спорту,
                 музики та вуличного мистецтва. Ми відбираємо кросівки, худі та аксесуари, які легко комбінувати між
@@ -382,13 +382,11 @@
         </div>
     </section>
 
-    <!-- ========== СЕКЦІЯ КОНТАКТИ ========== -->
     <section class="contacts">
         <div class="contacts__content">
             <h2 class="contacts__title">Контакти</h2>
             <p class="contacts__text">Є питання щодо розміру чи замовлення? Напиши нам — відповімо швидко.</p>
 
-            <!-- Список контактів -->
             <ul class="contacts__list">
                 <li class="contacts__item">
                     <span class="contacts__label">Адреса</span>
@@ -408,7 +406,6 @@
                 </li>
             </ul>
 
-            <!-- Соцмережі -->
             <ul class="contacts__socials">
                 <li>
                     <a class="contacts__social" href="#" aria-label="Instagram">
@@ -434,7 +431,6 @@
     </section>
 </main>
 
-<!-- ========== МОДАЛКА ТОВАРУ ========== -->
 <div class="modal" id="product-modal" hidden>
     <div class="modal__box" role="dialog" aria-modal="true" aria-labelledby="modal-title">
         <button class="modal__close" type="button" aria-label="Закрити">&#10005;</button>
@@ -463,10 +459,8 @@
     </div>
 </div>
 
-<!-- ========== ФУТЕР ========== -->
 <footer class="footer">
     <div class="footer__top">
-        <!-- Лого + слоган -->
         <div class="footer__brand">
             <a class="footer__logo" href="/">
                 <span class="footer__logo-text">KROK <span>•</span> STREET</span>
@@ -474,30 +468,27 @@
             <p class="footer__tagline">Вулична культура в кожній деталі.</p>
         </div>
 
-        <!-- Навігація -->
         <nav class="footer__nav">
             <h3 class="footer__heading">Навігація</h3>
             <ul class="footer__list">
                 <li><a href="#">Головна</a></li>
-                <li><a href="#">Каталог</a></li>
-                <li><a href="#">Про нас</a></li>
-                <li><a href="#">Контакти</a></li>
+                <li><a href="#catalog">Каталог</a></li>
+                <li><a href="#biographi">Про нас</a></li>
+                <li><a href="#contacts">Контакти</a></li>
             </ul>
         </nav>
 
-        <!-- Категорії -->
         <nav class="footer__nav">
             <h3 class="footer__heading">Категорії</h3>
             <ul class="footer__list">
-                <li><a href="#">Кросівки</a></li>
-                <li><a href="#">Худі</a></li>
-                <li><a href="#">Кепки</a></li>
-                <li><a href="#">Футболки</a></li>
+                <li><a href="#sneakers">Кросівки</a></li>
+                <li><a href="#coat">Худі</a></li>
+                <li><a href="#cap">Кепки</a></li>
+                <li><a href="#shirt">Футболки</a></li>
             </ul>
         </nav>
 
-        <!-- Контакти у футері -->
-        <div class="footer__contacts">
+        <div class="footer__contacts" id="contacts">
             <h3 class="footer__heading">Контакти</h3>
             <a href="mailto:hello@krokstreet.ua">hello@krokstreet.ua</a>
             <a href="tel:+380671234567">+380 (67) 123-45-67</a>
@@ -506,13 +497,52 @@
 
     <div class="footer__line"></div>
     <p class="footer__copy">© 2026 KROK STREET. Навчальний проєкт.</p>
-
-      <button id="openModalBtn" class="open-btn">№№№№№№№№№№№№№№№№№№№№№№№№</button>
 </footer>
 
-<!-- Скрипти: кожен підключаємо ОДИН раз -->
+ <div class="cart-overlay" id="cartOverlay"></div>
+
+
+<aside class="cart-sidebar" id="cartSidebar" aria-label="Кошик">
+    
+    <div class="cart-header">
+        <h3>Кошик <span class="cart-header__count">[<span id="cartHeaderCount">0</span>]</span></h3>
+        <button class="cart-close" id="cartClose" type="button" aria-label="Закрити кошик">&times;</button>
+    </div>
+
+   
+    <div class="cart-body">
+        
+        <div class="cart-empty" id="cartEmpty">
+            <div class="cart-empty-icon">🛍️</div>
+            <p class="cart-empty-text">Ваш кошик поки порожній</p>
+            <button class="cart-btn-catalog" id="btnCatalog" type="button">Перейти до каталогу</button>
+        </div>
+
+        
+        <div class="cart-items" id="cartItems"></div>
+
+        
+        <div class="cart-summary" id="cartSummary" hidden>
+            <div class="cart-summary__row">
+                <span>Товарів</span>
+                <strong id="cartCountSummary">0</strong>
+            </div>
+            <div class="cart-summary__row total">
+                <span>Разом</span>
+                <strong id="cartTotalPrice">0 ₴</strong>
+            </div>
+            <div class="button-agree">
+                <button type="button" class="cart-summary__button" id="openModalBtn">Оформити замовлення</button>
+            </div>
+        </div>
+    </div>
+</aside>
 <script src="ap.js"></script>
 <script src="modal.js"></script>
+<script src="bin.js"></script>
+<script src="filters.js"></script>
+<script src="search.js"></script>
+
 </body>
 
 </html>

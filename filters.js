@@ -25,7 +25,6 @@ function update() {
         return rightCategory && rightStock;
     });
 
-    // 2. Сортуємо за ціною
     if (sortSelect.value === 'price-asc') {
         shown.sort((a, b) => getPrice(a) - getPrice(b));
     } else if (sortSelect.value === 'price-desc') {
@@ -50,16 +49,14 @@ buttons.forEach(function (button) {
     });
 });
 
-// Зміна сортування та чекбокса
 sortSelect.addEventListener('change', update);
 stockCheckbox.addEventListener('change', update);
 
-// Скидання фільтрів
 form.addEventListener('reset', function () {
     category = 'all';
     buttons.forEach(b => b.classList.remove('active'));
     buttons[0].classList.add('active');
-    setTimeout(update, 0); // чекаємо, поки форма реально скинеться
+    setTimeout(update, 0); 
 });
 
 update();
