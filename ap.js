@@ -4,48 +4,95 @@ const sortSelect = document.getElementById('sort-select');
 const stockCheckbox = document.querySelector('input[name="in-stock"]');
 const list = document.getElementById('catalog-list');
 const count = document.getElementById('products-count');
+const searchInput = document.querySelector('.input-search');
 
-const items = Array.from(list.children); // всі картки товарів
+const cartBtn = document.getElementById('cartBtn');
+const cartSidebar = document.getElementById('cartSidebar');
+const cartOverlay = document.getElementById('cartOverlay');
+const cartClose = document.getElementById('cartClose');
+const btnCatalog = document.getElementById('btnCatalog');
+
+const items = Array.from(list.children);
 let category = 'all';
 
-// Дані картки: категорія, ціна, чи є в наявності
+function openCart() {
+    if (!cartSidebar || !cartOverlay) return;
+    cartSidebar.classList.add('is-open');
+    cartOverlay.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeCart() {
+    if (!cartSidebar || !cartOverlay) return;
+    cartSidebar.classList.remove('is-open');
+    cartOverlay.classList.remove('is-open');
+    document.body.style.overflow = '';
+}
+
+if (cartBtn) {
+    cartBtn.addEventListener('click', openCart);
+    cartBtn.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            openCart();
+        }
+    });
+}
+
+if (cartClose) cartClose.addEventListener('click', closeCart);
+if (cartOverlay) cartOverlay.addEventListener('click', closeCart);
+if (btnCatalog) btnCatalog.addEventListener('click', closeCart);
+
+document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && cartSidebar && cartSidebar.classList.contains('is-open')) {
+        closeCart();
+    }
+});
+
 function getCategory(item) {
     return item.querySelectorAll('p')[0].textContent.trim();
 }
+
 function getPrice(item) {
     return parseInt(item.querySelectorAll('p')[1].textContent.replace(/\D/g, ''));
 }
+
 function isInStock(item) {
     return !item.querySelector('button[disabled]');
 }
 
 function update() {
-    // 1. Залишаємо тільки потрібні товари
+    const query = searchInput ? searchInput.value.toLowerCase().trim() : '';
+
     let shown = items.filter(function (item) {
         const rightCategory = category === 'all' || getCategory(item) === category;
         const rightStock = !stockCheckbox.checked || isInStock(item);
-        return rightCategory && rightStock;
+
+        const titleEl = item.querySelector('h3');
+        const title = titleEl ? titleEl.textContent.toLowerCase() : '';
+        const desc = item.getAttribute('data-desc') ? item.getAttribute('data-desc').toLowerCase() : '';
+        const cat = getCategory(item).toLowerCase();
+
+        const rightSearch = !query || title.includes(query) || desc.includes(query) || cat.includes(query);
+
+        return rightCategory && rightStock && rightSearch;
     });
 
-    // 2. Сортуємо за ціною
     if (sortSelect.value === 'price-asc') {
         shown.sort((a, b) => getPrice(a) - getPrice(b));
     } else if (sortSelect.value === 'price-desc') {
         shown.sort((a, b) => getPrice(b) - getPrice(a));
     }
 
-    // 3. Ховаємо всі, потім показуємо потрібні в правильному порядку
     items.forEach(item => item.hidden = true);
     shown.forEach(function (item) {
         item.hidden = false;
         list.appendChild(item);
     });
 
-    // 4. Лічильник
     count.textContent = shown.length + ' товарів';
 }
 
-// Клік по категорії
 buttons.forEach(function (button) {
     button.addEventListener('click', function () {
         buttons.forEach(b => b.classList.remove('active'));
@@ -55,16 +102,19 @@ buttons.forEach(function (button) {
     });
 });
 
-// Зміна сортування та чекбокса
 sortSelect.addEventListener('change', update);
 stockCheckbox.addEventListener('change', update);
 
-// Скидання фільтрів
+if (searchInput) {
+    searchInput.addEventListener('input', update);
+}
+
 form.addEventListener('reset', function () {
     category = 'all';
     buttons.forEach(b => b.classList.remove('active'));
     buttons[0].classList.add('active');
-    setTimeout(update, 0); // чекаємо, поки форма реально скинеться
+    if (searchInput) searchInput.value = '';
+    setTimeout(update, 0);
 });
 
 update();

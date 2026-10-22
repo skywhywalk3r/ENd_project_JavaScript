@@ -27,3 +27,29 @@ document.addEventListener('keydown', function (e) {
     }
 });
 
+document.addEventListener('DOMContentLoaded', () => {
+    const searchInput = document.getElementById('searchInput');
+    const productCards = document.querySelectorAll('.product-card');
+    const notFoundMessage = document.getElementById('notFoundMessage');
+
+    searchInput.addEventListener('input', (e) => {
+        const query = e.target.value.toLowerCase().trim();
+        let hasVisibleProducts = false;
+
+        productCards.forEach((card) => {
+            const titleElement = card.querySelector('.product-title');
+            const titleText = titleElement ? titleElement.textContent.toLowerCase() : '';
+
+            if (titleText.includes(query)) {
+                card.style.display = '';
+                hasVisibleProducts = true;
+            } else {
+                card.style.display = 'none';
+            }
+        });
+
+        if (notFoundMessage) {
+            notFoundMessage.style.display = hasVisibleProducts ? 'none' : 'block';
+        }
+    });
+});
